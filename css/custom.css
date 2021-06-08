@@ -1,0 +1,13 @@
+/*
+ * Title:   Custom Style File
+ * Author:  http://themeforest.net/user/soaptheme 
+ */
+
+#long_hotel_description{
+    color: #333;
+    font-size: 16px;
+    line-height: 30px;
+    overflow: hidden;
+    padding: 15px;
+    text-align: justify;
+}

@@ -1,0 +1,3652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap Popover with Close Button</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/animate.min.css">  
+
+  <!-- Main Style -->
+  <link id="main-style" rel="stylesheet" href="css/style.css">   
+  <!-- Responsive Styles -->
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet"> 
+  <link  href="https://demo.travelomatix.com/extras/system/library/bootstrap/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" hreflang="en">
+</link>
+<link href="https://demo.travelomatix.com/extras/system/library/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" hreflang="en">
+</link>
+<link href="https://demo.travelomatix.com/extras/system/template_list/template_v3/css/theme_style.css" media="screen" rel="stylesheet" type="text/css" hreflang="en">
+</link>    
+<style type="text/css">
+  .nopad{
+    padding:0px;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<body>
+ <section id="content">
+  <div class="container">
+    <div id="main">
+      <div class="row">
+        <div class="col-sm-4 col-md-3">
+          <h4 class="search-results-title"><i class="soap-icon-search"></i><b id="fl-lid"></b> results found.</h4>
+          <div class="toggle-container filters-container">
+            <div class="panel style1 arrow-right">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#price-filter" class="collapsed">Price</a>
+              </h4>
+              <div id="price-filter" class="panel-collapse collapse">
+                <div class="panel-content">
+                  <div id="price-range"></div>
+                  <br />
+                  <span class="min-price-label pull-left"></span>
+                  <span class="max-price-label pull-right"></span>
+                  <div class="clearer"></div>
+                </div><!-- end content -->
+              </div>
+            </div>
+
+            <div class="panel style1 arrow-right">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#flight-times-filter" class="collapsed">Flight Times</a>
+              </h4>
+              <div id="flight-times-filter" class="panel-collapse collapse">
+                <div class="panel-content">
+                  <div id="flight-times" class="slider-color-yellow"></div>
+                  <br />
+                  <span class="start-time-label pull-left"></span>
+                  <span class="end-time-label pull-right"></span>
+                  <div class="clearer"></div>
+                </div><!-- end content -->
+              </div>
+            </div>
+
+            <div class="panel style1 arrow-right">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#flight-stops-filter" class="collapsed">Flight Stops</a>
+              </h4>
+              <div id="flight-stops-filter" class="panel-collapse collapse">
+                <div class="panel-content">
+                  <ul class="check-square filters-option">
+                    <li><a href="#">1 Stop</a></li>
+                    <li><a href="#">2 Stops</a></li>
+                    <li class="active"><a href="#">3 Stops</a></li>
+                    <li><a href="#">MultiStops</a></li>
+                  </ul>
+                  <a class="button btn-mini">MORE</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel style1 arrow-right">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#airlines-filter" class="collapsed">Airlines</a>
+              </h4>
+              <div id="airlines-filter" class="panel-collapse collapse">
+                <div class="panel-content">
+                  <ul class="check-square filters-option">
+                    <li><a href="#">Major Airline<small>($620)</small></a></li>
+                    <li><a href="#">United Airlines<small>($982)</small></a></li>
+                    <li class="active"><a href="#">delta airlines<small>($1,127)</small></a></li>
+                    <li><a href="#">Alitalia<small>($2,322)</small></a></li>
+                    <li><a href="#">US airways<small>($3,158)</small></a></li>
+                    <li><a href="#">Air France<small>($4,239)</small></a></li>
+                    <li><a href="#">Air tahiti nui<small>($5,872)</small></a></li>
+                  </ul>
+                  <a class="button btn-mini">MORE</a>
+                </div>
+              </div>
+            </div>
+            <div class="panel style1 arrow-right">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#flight-type-filter" class="collapsed">Flight Type</a>
+              </h4>
+              <div id="flight-type-filter" class="panel-collapse collapse">
+                <div class="panel-content">
+                  <ul class="check-square filters-option">
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">First class</a></li>
+                    <li class="active"><a href="#">Economy</a></li>
+                    <li><a href="#">Premium Economy</a></li>
+                  </ul>
+                  <a class="button btn-mini">MORE</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel style1 arrow-right">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#inflight-experience-filter" class="collapsed">Inflight Experience</a>
+              </h4>
+              <div id="inflight-experience-filter" class="panel-collapse collapse">
+                <div class="panel-content">
+                  <ul class="check-square filters-option">
+                    <li><a href="#">Inflight Dining</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li class="active"><a href="#">Sky Shopping</a></li>
+                    <li><a href="#">Wi-fi</a></li>
+                    <li><a href="#">Seats &amp; Cabin</a></li>
+                  </ul>
+                  <a class="button btn-mini">MORE</a>
+                </div>
+              </div>
+            </div>
+            <div class="panel style1 arrow-right">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#modify-search-panel" class="collapsed">Modify Search</a>
+              </h4>
+              <div id="modify-search-panel" class="panel-collapse collapse">
+                <div class="panel-content">
+                  <form method="post">
+                    <div class="form-group">
+                      <label>Leaving from</label>
+                      <input type="text" class="input-text full-width" placeholder="" value="city, district, or specific airpot" />
+                    </div>
+                    <div class="form-group">
+                      <label>Departure on</label>
+                      <div class="datepicker-wrap">
+                        <input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Arriving On</label>
+                      <div class="datepicker-wrap">
+                        <input type="text" name="date_to" class="input-text full-width" placeholder="mm/dd/yy" />
+                      </div>
+                    </div>
+                    <br />
+                    <button class="btn-medium icon-check uppercase full-width">search again</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="col-sm-12 col-md-9">
+          <div clas="row">
+            <div class="col-sm-6 nopad">
+              <div id="left-div">
+              </div>
+            </div>
+            <div class="col-sm-6 nopad">
+              <div id="right-div">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="fixincrmnt" id="multi-flight-summary-container">
+ <div class="insidecurent">
+  <div class="col-xs-10 nopad">
+   <div class="col-xs-6 nopad">
+    <div class="selctarln colorretn">
+     <div class="col-xs-3 nopad flightimage">
+      <div class="fligthsmll"><img class="departure-flight-icon" src="/extras/system/library/images/airline_logo/G8.gif" alt=""></div>
+      <div class="airlinename departure-flight-name">Goair</div>
+    </div>
+    <div class="col-xs-9 nopad listfull">
+      <div class="sidenamedesc">
+       <div class="celhtl width80">
+        <div class="waymensn">
+         <div class="flitruo">
+          <div class="outbound-details">
+           <div class="topnavi">
+            <div class="col-xs-4 padflt widftysing"><span class="flitrlbl elipsetool">DEL</span></div>
+            <div class="col-xs-4 padflt nonefitysing"><img src="/extras/system/template_list/template_v3/images/stop_0.png" alt="stop_image"></div>
+            <div class="col-xs-4 padflt widftysing"><span class="flitrlbl elipsetool text_algn_rit">Mumbai (BOM)</span></div>
+          </div>
+        </div>
+        <div class="detlnavi outbound-timing-details">
+         <div class="col-xs-4 padflt widfty"><span class="timlbl departure">02:40</span></div>
+         <div class="col-xs-4 padflt nonefity">
+          <div class="lyovrtime">
+           <span  class="flect duration">2h 15m </span>
+           <div  class="flect stop-image"></div>
+           <span class="flect stop-count">Stop:0</span>
+         </div>
+       </div>
+       <div class="col-xs-4 padflt widfty"><span class="timlbl arrival text_algn_rit">04:55</span></div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xs-6 nopad">
+  <div class="selctarln cloroutbnd" id="ReceiveRight">
+   <div class="col-xs-3 nopad flightimage">
+    <div class="fligthsmll"><img class="arrival-flight-icon" id="RetImg" src="/extras/system/library/images/airline_logo/I5.gif" alt=""></div>
+    <div id="Retfname" class="airlinename arrival-flight-name">Air Asia</div>
+  </div>
+  <div class="col-xs-9 nopad listfull">
+    <div class="sidenamedesc">
+     <div class="celhtl width80">
+      <div class="waymensn">
+       <div class="flitruo">
+        <div class="inbound-details">
+         <div class="topnavi">
+          <div class="col-xs-4 padflt widftysing"><span id="Retarrname" class="flitrlbl elipsetool">BOM</span></div>
+          <!-- <div class="col-xs-4 padflt nonefitysing"><img src="/extras/system/template_list/template_v3/images/stop_1.png" alt="stop_image"></div> -->
+          <div class="col-xs-4 padflt widftysing"><span id="Retdepname" class="flitrlbl elipsetool text_algn_rit">Delhi (DEL)</span></div>
+        </div>
+      </div>
+      <div class="detlnavi inbound-timing-details">
+       <div class="col-xs-4 padflt widfty"><span id="retdeptime" class="timlbl departure">18:30</span></div>
+       <div class="col-xs-4 padflt nonefity">
+        <div class="lyovrtime">
+         <span id="comeduration" class="flect duration">8h 15m </span>
+         <div class="flect stop-image1"></div>
+         <span class="flect stop-count">Stop:1</span>
+       </div>
+     </div>
+     <div class="col-xs-4 padflt widfty"><span id="retarrtime" class="timlbl arrival text_algn_rit">02:45</span></div>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xs-2 nopad">
+ <div class="sidepricewrp">
+  <div class="col-xs-12 nopad">
+   <div class="sidepricebig"><strong class="currency">Rs</strong> <span class="f-p">11423.00</span></div>
+ </div>
+ <div class="col-xs-12 nopad">
+   <div class="bookbtn">
+    <input type="hidden" id="flight-from-price" value="5909"><input type="hidden" id="flight-to-price" value="5514">
+    <form id="multi-flight-form" action="" method="POST">
+     <div class="hide" id="trip-way-wrapper"></div>
+     <button class="btn-flat booknow" type="submit" id="multi-flight-booking-btn">Book</button>
+   </form>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+  var testObject=
+  {
+    "Status": 1,
+    "Message": "",
+    "Search": {
+      "FlightDataList": {
+        "JourneyList": [
+        [
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 07:40:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 08:40:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3302",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3981.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 1215.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*1*_*f3wV2TqgxjEk43in",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 15:00:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 16:05:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3407",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3981.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 1215.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*2*_*GrPrOMTD6ZtvKZDe",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 18:15:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 19:20:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "1233",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3981.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 1215.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*3*_*vEXK0PWl7iWrBCsJ",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 21:50:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 22:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3318",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3981.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 1215.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*4*_*QfpDBeNXkUCvEALW",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 22:30:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 23:35:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3310",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3981.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 1215.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 607.18,
+                "TotalPrice": 1390.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*5*_*0JVbdfy1n84A6fTc",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 22:30:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 23:35:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3310",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4189.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1223.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*6*_*6X5jfevu0U0iW8Fm",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 18:15:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 19:20:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "1233",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4189.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1223.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*7*_*6eVujT071b1LFqd4",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 15:00:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 16:05:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3407",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4189.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1223.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*8*_*TACUT80OeLje0Kxt",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 07:40:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 08:40:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3302",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4189.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1223.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*9*_*r14mdgIDsF4xdrwQ",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 21:50:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 22:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3318",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4189.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1223.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 611.18,
+                "TotalPrice": 1494.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*10*_*Tpcujqo1f24isq3U",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 21:50:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 22:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3318",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4452.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1220,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*11*_*zM0ZzzKpppo2NXTs",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 18:15:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 19:20:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "1233",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4452.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1220,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*12*_*SfRooMntAde32YwW",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 15:00:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 16:05:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3407",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4452.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1220,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*13*_*FeYvD1cSY8LG9Pbe",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 07:40:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 08:40:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3302",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4452.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1220,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*14*_*NpMhj3iMqB9hDoJJ",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 22:30:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 23:35:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3310",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4452.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 1220,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 610,
+                "TotalPrice": 1493,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*15*_*O8P2FXxwtrlDZ1II",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 07:25:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 08:25:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2389",
+              "CabinClass": "Z",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 6686,
+            "PriceBreakup": {
+              "BasicFare": 3212,
+              "Tax": 3474,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 1606,
+                "Tax": 940.333,
+                "TotalPrice": 2546.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 1606,
+                "Tax": 940.333,
+                "TotalPrice": 2546.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*16*_*MQ56VKXlGL7XtEQk",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Economy Promo fare. I5 TEST.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 17:30:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 18:30:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2383",
+              "CabinClass": "Z",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 6686,
+            "PriceBreakup": {
+              "BasicFare": 3212,
+              "Tax": 3474,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 1606,
+                "Tax": 940.333,
+                "TotalPrice": 2546.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 1606,
+                "Tax": 940.333,
+                "TotalPrice": 2546.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*17*_*KCd7TdU0csYp6W4W",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Economy Promo fare. I5 TEST.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 07:25:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 08:25:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2389",
+              "CabinClass": "ZF",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 10782,
+            "PriceBreakup": {
+              "BasicFare": 7112,
+              "Tax": 3670,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 3556,
+                "Tax": 1038.333,
+                "TotalPrice": 4594.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 3556,
+                "Tax": 1038.333,
+                "TotalPrice": 4594.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*18*_*DK8taFl253jajayR",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Premium Flex fare. Baggage Details : 20KGS. Meal : 1 complimentory meal. I5 TEST.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-17 17:30:00"
+              },
+              "Destination": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-17 18:30:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2383",
+              "CabinClass": "ZF",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 10782,
+            "PriceBreakup": {
+              "BasicFare": 7112,
+              "Tax": 3670,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 3556,
+                "Tax": 1038.333,
+                "TotalPrice": 4594.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 3556,
+                "Tax": 1038.333,
+                "TotalPrice": 4594.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*19*_*mXHOg5JLcyanLpQX",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Premium Flex fare. Baggage Details : 20KGS. Meal : 1 complimentory meal. I5 TEST.",
+            "IsLCC": true
+          }
+        }
+        ],
+        [
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 06:05:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 07:10:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3301",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3683.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 917.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*20*_*1zfhJatb3U5T1A3N",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 07:20:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 08:25:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "1063",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3683.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 917.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*21*_*xll7eqIK1lsnBbgJ",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 09:15:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 10:25:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3408",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 70,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3683.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 917.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*22*_*RTZCTNhwZwFpFjLK",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 16:55:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 17:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3309",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3683.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 917.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*23*_*bV5ekvBNeMomn837",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 19:50:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 20:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3307",
+              "CabinClass": "HO",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3683.54,
+            "PriceBreakup": {
+              "BasicFare": 2766,
+              "Tax": 917.54,
+              "AgentCommission": 92.8,
+              "AgentTdsOnCommision": 4.64
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 783,
+                "Tax": 458.18,
+                "TotalPrice": 1241.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*24*_*BILMeMBLTvMvet0n",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a hand bag fare only result. No checked in baggage is allowed.. . #- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 19:50:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 20:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3307",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3891.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 925.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*25*_*MZIaZDrUD9898mu6",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 16:55:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 17:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3309",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3891.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 925.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*26*_*3ll8M5fBUrLCsszq",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 09:15:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 10:25:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3408",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 70,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3891.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 925.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*27*_*KYFXuddLifeGYQP5",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 06:05:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 07:10:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3301",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3891.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 925.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*28*_*9rEx4XtcjlgOLMU0",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 07:20:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 08:25:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "1063",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 3891.54,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 925.54,
+              "AgentCommission": 104.64,
+              "AgentTdsOnCommision": 5.232
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 462.18,
+                "TotalPrice": 1345.18,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 1.18,
+                "TotalPrice": 1201.18,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*29*_*Lx5R8gKqlL4srt4b",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "#- SME  Fare.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 16:55:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 17:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3309",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4154.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 922,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*30*_*N5bLmeTvNgWevPSm",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 09:15:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 10:25:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3408",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 70,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4154.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 922,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*31*_*7gjZQTqiIvPPbI36",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 07:20:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 08:25:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "1063",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4154.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 922,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*32*_*bDqiP7dNmwxC2nle",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 06:05:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 07:10:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3301",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4154.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 922,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*33*_*cnubsaB5qhlSzwmR",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 19:50:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 20:55:00"
+              },
+              "OperatorCode": "SG",
+              "DisplayOperatorCode": "",
+              "OperatorName": "SpiceJet",
+              "FlightNumber": "3307",
+              "CabinClass": "U",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "15 KG",
+                "CabinBaggage": "7 KG"
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 4154.94,
+            "PriceBreakup": {
+              "BasicFare": 2966,
+              "Tax": 922,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 883,
+                "Tax": 461,
+                "TotalPrice": 1344,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 1200,
+                "Tax": 0,
+                "TotalPrice": 1200,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*34*_*pcEJJCLUlZV4jXW8",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "Remarks for star Coupon.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 08:25:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 09:30:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2392",
+              "CabinClass": "Z",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 6784,
+            "PriceBreakup": {
+              "BasicFare": 3612,
+              "Tax": 3172,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 1806,
+                "Tax": 789.333,
+                "TotalPrice": 2595.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 1806,
+                "Tax": 789.333,
+                "TotalPrice": 2595.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*35*_*H3fvHRIAWIVDzTvs",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Economy Promo fare. I5 TEST.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 13:10:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 14:05:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2386",
+              "CabinClass": "Z",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 55,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 6784,
+            "PriceBreakup": {
+              "BasicFare": 3612,
+              "Tax": 3172,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 1806,
+                "Tax": 789.333,
+                "TotalPrice": 2595.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 1806,
+                "Tax": 789.333,
+                "TotalPrice": 2595.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*36*_*5W9ZjuONCcD1AhBj",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Economy Promo fare. I5 TEST.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 23:35:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-21 00:35:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2380",
+              "CabinClass": "Z",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 6784,
+            "PriceBreakup": {
+              "BasicFare": 3612,
+              "Tax": 3172,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 1806,
+                "Tax": 789.333,
+                "TotalPrice": 2595.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 1806,
+                "Tax": 789.333,
+                "TotalPrice": 2595.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*37*_*AlXKnRF41fo9pNht",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Economy Promo fare. I5 TEST.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 13:10:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 14:05:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2386",
+              "CabinClass": "ZF",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 55,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 10880,
+            "PriceBreakup": {
+              "BasicFare": 7512,
+              "Tax": 3368,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 3756,
+                "Tax": 887.333,
+                "TotalPrice": 4643.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 3756,
+                "Tax": 887.333,
+                "TotalPrice": 4643.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*38*_*wcnOit2oFcs8HF6U",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Premium Flex fare. Baggage Details : 20KGS. Meal : 1 complimentory meal. I5 TEST.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 08:25:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-20 09:30:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2392",
+              "CabinClass": "ZF",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 65,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 10880,
+            "PriceBreakup": {
+              "BasicFare": 7512,
+              "Tax": 3368,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 3756,
+                "Tax": 887.333,
+                "TotalPrice": 4643.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 3756,
+                "Tax": 887.333,
+                "TotalPrice": 4643.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*39*_*QbPxpZXigvs2Q8o9",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Premium Flex fare. Baggage Details : 20KGS. Meal : 1 complimentory meal. I5 TEST.",
+            "IsLCC": true
+          }
+        },
+        {
+          "FlightDetails": {
+            "Details": [
+            [
+            {
+              "Origin": {
+                "AirportCode": "MAA",
+                "CityName": "Chennai",
+                "AirportName": "Chennai",
+                "DateTime": "2020-07-20 23:35:00"
+              },
+              "Destination": {
+                "AirportCode": "BLR",
+                "CityName": "Bangalore",
+                "AirportName": "Bangalore",
+                "DateTime": "2020-07-21 00:35:00"
+              },
+              "OperatorCode": "I5",
+              "DisplayOperatorCode": "",
+              "OperatorName": "Compagnie Aerienne du Mali",
+              "FlightNumber": "2380",
+              "CabinClass": "ZF",
+              "Operatedby": "",
+              "equipment": "",
+              "Duration": 60,
+              "Attr": {
+                "Baggage": "0 Kg",
+                "CabinBaggage": "7 Kg",
+                "AvailableSeats": 15
+              }
+            }
+            ]
+            ]
+          },
+          "Price": {
+            "Currency": "INR",
+            "TotalDisplayFare": 10880,
+            "PriceBreakup": {
+              "BasicFare": 7512,
+              "Tax": 3368,
+              "AgentCommission": 0,
+              "AgentTdsOnCommision": 0
+            },
+            "PassengerBreakup": {
+              "ADT": {
+                "BasePrice": 3756,
+                "Tax": 887.333,
+                "TotalPrice": 4643.333,
+                "PassengerCount": 1
+              },
+              "CHD": {
+                "BasePrice": 3756,
+                "Tax": 887.333,
+                "TotalPrice": 4643.333,
+                "PassengerCount": 1
+              },
+              "INF": {
+                "BasePrice": 0,
+                "Tax": 1593.333,
+                "TotalPrice": 1593.333,
+                "PassengerCount": 1
+              }
+            }
+          },
+          "ResultToken": "9c08fc797239ef409eadaa3bc930559c*_*40*_*prirMMECc3PzepPt",
+          "Attr": {
+            "IsRefundable": true,
+            "AirlineRemark": "This is a Premium Flex fare. Baggage Details : 20KGS. Meal : 1 complimentory meal. I5 TEST.",
+            "IsLCC": true
+          }
+        }
+        ]
+        ]
+      }
+    }
+  }
+  let storageItem = localStorage.setItem('custdetails',JSON.stringify(testObject));
+  let getstorageItem = localStorage.getItem('custdetails');
+  var dispresult = JSON.parse(getstorageItem); 
+//console.log(dispresult.Search.FlightDataList);
+// console.log(dispresult);
+
+var flightdetails= dispresult.Search.FlightDataList.JourneyList;
+console.log(flightdetails);
+
+// console.log("Flight data : ",flightdetails[0]);
+// console.log("Flight data : ",flightdetails[1]);
+/*
+console.log("Flight data : ", flightdetails[0][0].FlightDetails.Details[0][0]);
+console.log("Flight data : ", flightdetails[1][0].FlightDetails.Details[0][0]);
+*/
+
+
+
+var rightcreateflightsCards = function (flights, id){
+    // console.log(" Right = > ", flights," Right = > ",id);
+    // console.log(flights);
+    // console.log(flights.Attr.IsRefundable);
+
+    // console.log("Right" ,id ,flights.ResultToken);
+    console.log("Right" ,flights.Price.TotalDisplayFare);
+
+    // console.log(flights.FlightDetails.Details[0][0].Origin.AirportCode);
+
+    let origintime= flights.FlightDetails.Details[0][0].Origin.DateTime;
+    let destinationtime= flights.FlightDetails.Details[0][0].Destination.DateTime;
+    var oDate= origintime.slice(0,-9);
+    var oTime= origintime.slice(10,-3);
+    var dDate= destinationtime.slice(0,-9);
+    var dTime= destinationtime.slice(10,-3);
+
+    // console.log(flights.FlightDetails.Details[0][0].OperatorName);
+
+    // console.log(flights.FlightDetails.Details[0][0].Origin.AirportCode);
+  /*  console.log(flights.FlightDetails.Details[0][0].Destination.AirportCode);
+    console.log(flights.FlightDetails.Details[0][0].Destination.AirportName);
+    */  
+    console.log(id);
+    console.log(flights.FlightDetails.Details[0][0].Origin.AirportCode);
+    console.log(flights.FlightDetails.Details[0][0].Origin.AirportName);
+
+
+     // console.log(" = > ", flights.Price.TotalDisplayFare);
+ //    console.log(" = > ",  flights.Attr.AvailableSeats );
+ // console.log(" = > ",  flights.Price.PriceBreakup.BasicFare);
+ // console.log(" = > ",  flights.Price.PriceBreakup.Tax);
+ // console.log(" = > ",  flights.ResultToken);
+ // console.log(flights.FlightDetails.Details[0][0].Destination.DateTime);
+ // console.log(oDate);
+
+ var airpath ='http://demo.liamlifestyleandservices.com/images/airlinelogo/'
+
+ if (flights.Attr.IsRefundable == false) {
+   var refund ="Refundable";     
+ } else {
+  var refund ="Non Refundable";     
+}
+
+let hourstime = flights.FlightDetails.Details[0][0].Duration;
+function timeConvert(hourstime) {
+  var num = hourstime;
+  var hours = (num / 60);
+  var rhours = Math.floor(hours);
+  var minutes = (hours - rhours) * 60;
+  var rminutes = Math.round(minutes);
+  return  rhours + "h " + rminutes + "m";
+}
+
+
+let showtume =timeConvert(hourstime);
+let rightcardtemplate= `
+<div class="left"><div class="round-domestk">
+<div class="">
+<div class="rowright rowresult  p-0 r-r-i t-w-i-2 active">
+<div class="madgrid" data-key="${id}">
+<div class="f-s-d-w col-xs-8 nopad wayeght full_same">
+<div class="allsegments outer-segment-0" id="cloneone${id}">
+<div class="quarter_wdth nopad col-xs-3">
+<div class="fligthsmll"><img class="airline-logo" alt="I5 icon" id="comeairlinelogo${id}" src="${airpath}${flights.FlightDetails.Details[0][0].OperatorCode}.gif"></div>
+<div class="m-b-0 text-center">
+<div class="a-n airlinename"  id="comeairlinename${id}" data-code="I5">${flights.FlightDetails.Details[0][0].OperatorName} </div>
+<strong> ${flights.FlightDetails.Details[0][0].FlightNumber} </strong>                                            
+</div>
+</div>
+<div class="col-xs-3 nopad quarter_wdth">
+<div class="insidesame">
+<span id="comeairlinesmalltime${id}" class="fdtv hide">${oTime}</span>
+<div id="airlinebigtime${id}"  class="f-d-t bigtimef">${oTime}</div>
+<div  id="comeairlineorigincode${id}" class="from-loc smalairport_code">${flights.FlightDetails.Details[0][0].Origin.AirportCode}</div>
+<div  id="comeairlineoriginname${id}" class="from-loc smalairport">${id}  ${flights.FlightDetails.Details[0][0].Origin.AirportName} (${flights.FlightDetails.Details[0][0].Origin.AirportCode})</div>
+<span class="dep_dt hide" data-category="4" data-datetime="1593522000000"></span>
+</div>
+</div>
+<div class="col-md-1 p-tb-10 hide">
+<div class="arocl fa fa-long-arrow-right"></div>
+</div>
+<div class="smal_udayp nopad col-xs-3">
+<span class="f-d hide">495</span>
+<div class="insidesame">
+<div id="comeairlinedurtime${id}"  class="durtntime">${showtume}</div>
+
+<div class="city_code1"></div>
+<div class="cabinclass hide">Economy</div>
+</div>
+</div>
+<div class="col-xs-3 nopad quarter_wdth">
+<div class="insidesame">
+<span class="fatv hide">0245</span>
+<div id="comeairportarrtime${id}" class="f-a-t bigtimef">${dTime}</div>
+<div id="comeairportorgcode${id}" class="to-loc smalairport">${flights.FlightDetails.Details[0][0].Destination.AirportName} (${flights.FlightDetails.Details[0][0].Destination.AirportCode})</div>
+
+<div id="comeairportdescode${id}" class="smalairport_code">${flights.FlightDetails.Details[0][0].Destination.AirportCode}</div>
+<span class="arr_dt hide" data-category="1" data-datetime="1593551700000"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xs-4 nopad wayfour full_same">
+<span class="hide stp" data-stp="1" data-category="2"></span>
+<div class="priceanbook">
+<div class="col-xs-6 nopad wayprice">
+<div class="insidesame">
+<div id="comeairportprice${id}" class="priceflights"><strong> Rs </strong><span class="f-p">${flights.Price.TotalDisplayFare}</span></div>
+<span class="hide price" data-price="5514" data-currency="Rs"></span>
+<div data-val="1" class="n-r n-r-t">${refund}</div>
+</div>
+</div>
+<div class="col-xs-6 nopad waybook">
+<div class="form-wrapper bookbtlfrt"> <button class="bookallbtn mfb-btn" id="${id}" onclick="clonefirst(this.id)" type="button">Select</button></div>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+
+<div class="mrinfrmtn"><a class="detailsflt iti-btn" data-toggle="modal"  data-id="${flights.FlightDetails.Details[0][0].Attr.AvailableSeats}" data-target="#FMmoda${id}"><span class="fal fa-info-circle fldetail" data-toggle="tooltip" title="" data-original-title="Flight Itinerary"></span>Flight Details | </a><i>This is a Economy Promo fare.</i></div>
+</div>      
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="FMmoda${id}" role="dialog">
+<div class="modal-dialog modal-lg">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Modal Header</h4>
+</div>
+<div class="modal-body">
+<div role="tabpanel">
+<!-- Nav tabs -->
+<ul class="nav nav-pills" role="tablist">
+<li role="presentation" class="active"><a href="#uploadTab${id}" aria-controls="uploadTab" role="tab" data-toggle="tab">Itinerary</a>
+</li>
+<li role="presentation"><a href="#browseTab${id}" onload="myFunction(browseTab${id})" aria-controls="browseTab" role="tab" data-toggle="tab">Fare Details</a>
+</li>
+</ul>
+<!-- Tab panes -->
+<div class="tabmarg">
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="uploadTab${id}">
+<div class="alltwobnd">
+<div class="row">
+<div class="col-xs-8 nopad full_wher">
+<div class="inboundiv seg-0">
+<div class="hedtowr">${flights.FlightDetails.Details[0][0].Origin.AirportName} to ${flights.FlightDetails.Details[0][0].Destination.AirportName} <strong>(${showtume})</strong></div>
+<div class="flitone">
+<div class="col-xs-4 nopad5">
+<div class="imagesmflt"><img alt="G8 icon" src="${airpath}${flights.FlightDetails.Details[0][0].OperatorCode}.gif"></div>
+<div class="flitsmdets">Goair<strong>G8 423 </strong> 
+</div>
+</div>
+<div class="col-xs-6 nopad5">
+<div class="col-xs-5 nopad5">
+<div class="dateone">${oTime}</div>
+<div class="dateone">${oDate}</div>
+<div class="termnl">${flights.FlightDetails.Details[0][0].Origin.AirportName} (${flights.FlightDetails.Details[0][0].Origin.AirportCode})</div>
+</div>
+<div class="col-xs-2 nopad">
+<div class="arocl fa fa-long-arrow-right"></div>
+</div>
+<div class="col-xs-5 nopad5">
+<div class="dateone">${dTime}</div>
+<div class="dateone">${dDate}</div>
+<div class="termnl">${flights.FlightDetails.Details[0][0].Destination.AirportName} (${flights.FlightDetails.Details[0][0].Destination.AirportCode})</div>
+</div>
+</div>
+<div class="col-xs-2 nopad5">
+<div class="ritstop">
+<div class="termnl">${showtume}</div>
+<div class="termnl1">Stop : 0</div>
+</div>
+</div>
+<span style="float:left"><b></b></span>
+<div class="Baggage_block">
+<div class="termnl1 flo_w"><em><i class="fa fa-suitcase bag_icon"></i>${flights.FlightDetails.Details[0][0].Attr.Baggage}</em></div>
+<div class="termnl1 flo_w"><em><i class="air_seat timings icseats"></i>${flights.FlightDetails.Details[0][0].Attr.AvailableSeats}</em></div>
+</div>
+</div>    
+</div>
+</div>
+<div class="col-xs-4 nopad full_wher">
+<div class="inboundiv sidefare">
+<h4 class="farehdng">Total Fare Breakup</h4>
+<div class="inboundivinr">
+<div class="rowfare">
+<div class="col-xs-8 nopad"><span class="infolbl">Total Base Fare</span></div>
+<div class="col-xs-4 nopad"><span class="pricelbl">${flights.Price.PriceBreakup.BasicFare}</span></div>
+</div>
+<div class="rowfare">
+
+<div class="col-xs-8 nopad"><span class="infolbl">Taxes &amp; Fees</span></div>
+<div class="col-xs-4 nopad"><span class="pricelbl">${flights.Price.PriceBreakup.Tax}</span></div>
+</div>
+<div class="rowfare grandtl">
+<div class="col-xs-8 nopad"><span class="infolbl">Grand Total</span></div>
+<div class="col-xs-4 nopad"><span class="pricelbl">${flights.Price.TotalDisplayFare}</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane" id="browseTab${id}">
+<div class="text-center" id="dynResponse${id}">Please Wait</div>
+<input type="hidden" value="${flights.ResultToken}" id="dyninp${id}">
+<div class="i-s-s-c tabmarg">
+<div class="col-xs-12 nopad">
+<div class="inboundiv splfares">
+<h4 class="farehdng">Fare Rules</h4>
+<div class="flight-fare-rules rowfare">
+<div class="lablfare">${flights.FlightDetails.Details[0][0].Origin.AirportName} <span class="fa fa-long-arrow-right"></span> ${flights.FlightDetails.Details[0][0].Destination.AirportName}</div>
+<div class="feenotes" id="feenote${id}">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+`
+
+return rightcardtemplate;
+}
+
+var createflightsCards = function (flights, id){       
+
+        // console.log(" = > ", flights.FlightDetails.Details[0][0].Origin.DateTime);
+        console.log(" = > ", flights.FlightDetails.Details);
+        // console.log("Left" ,id ,flights.Attr.IsRefundable);
+
+        console.log("Left" ,id ,flights.ResultToken);
+
+        let origintime= flights.FlightDetails.Details[0][0].Origin.DateTime;
+        let destinationtime= flights.FlightDetails.Details[0][0].Destination.DateTime;
+
+        let oDate= origintime.slice(0,-9);
+        let oTime= origintime.slice(10,-3);
+        let dDate= destinationtime.slice(0,-9);
+        let dTime= destinationtime.slice(10,-3);
+
+        // console.log(flights.FlightDetails.Details[0][0].Origin.AirportCode);
+
+     // console.log(" = > ", flights.Price.TotalDisplayFare);
+ //    console.log(" = > ",  flights.Attr.AvailableSeats );
+ // console.log(" = > ",  flights.Price.PriceBreakup.BasicFare);
+ // console.log(" = > ",  flights.Price.PriceBreakup.Tax);
+ // console.log(" = > ",  flights.ResultToken);
+ // console.log(flights.FlightDetails.Details[0][0].Destination.DateTime);
+ // console.log(oDate);
+ var airpath ='http://demo.liamlifestyleandservices.com/images/airlinelogo/'
+
+ if (flights.Attr.IsRefundable == false) {
+   var refund ="Refundable";     
+ } else {
+  var refund ="Non Refundable";     
+}
+
+let hourstime = flights.FlightDetails.Details[0][0].Duration;
+function timeConvert(hourstime) {
+  var num = hourstime;
+  var hours = (num / 60);
+  var rhours = Math.floor(hours);
+  var minutes = (hours - rhours) * 60;
+  var rminutes = Math.round(minutes);
+    //return num + " minutes = " + rhours + " hour(s) and " + rminutes + " minute(s).";
+    return  rhours + "h " + rminutes + "m";
+  }
+
+  let showtume =timeConvert(hourstime);
+  let leftcardtemplate= `
+  <div class="right"><div class="round-domestk">
+  <div class="">
+  <div class="rowleft rowresult p-0 r-r-i t-w-i-1 active">
+  <div class="madgrid" data-key="${id}" id="${id}">
+  <div class="f-s-d-w col-xs-8 nopad wayeght full_same">
+  <div class="allsegments outer-segment-0">
+  <div class="quarter_wdth nopad col-xs-3">
+  <div class="fligthsmll"><img class="airline-logo" alt="I5 icon" src="${airpath}${flights.FlightDetails.Details[0][0].OperatorCode}.gif"></div>
+  <div class="m-b-0 text-center">
+  <div class="a-n airlinename" data-code="I5">${flights.FlightDetails.Details[0][0].OperatorName} </div>
+  <strong> ${flights.FlightDetails.Details[0][0].FlightNumber} </strong>                                            
+  </div>
+  </div>
+  <div class="col-xs-3 nopad quarter_wdth">
+  <div class="insidesame">
+  <span class="fdtv hide">${oTime}</span>
+  <div class="f-d-t bigtimef">${oTime}</div>
+  <div class="from-loc smalairport_code">${flights.FlightDetails.Details[0][0].Origin.AirportCode}</div>
+  <div class="from-loc smalairport"> ${id} ${flights.FlightDetails.Details[0][0].Origin.AirportName} (${flights.FlightDetails.Details[0][0].Origin.AirportCode})</div>
+  <span class="dep_dt hide" data-category="4" data-datetime="1593522000000"></span>
+  </div>
+  </div>
+  <div class="col-md-1 p-tb-10 hide">
+  <div class="arocl fa fa-long-arrow-right"></div>
+  </div>
+  <div class="smal_udayp nopad col-xs-3">
+  <span class="f-d hide">495</span>
+  <div class="insidesame">
+  <div class="durtntime">${showtume}</div>
+
+  <div class="city_code1"></div>
+  <div class="cabinclass hide">Economy</div>
+  </div>
+  </div>
+  <div class="col-xs-3 nopad quarter_wdth">
+  <div class="insidesame">
+  <span class="fatv hide">0245</span>
+  <div class="f-a-t bigtimef">${dTime}</div>
+  <div class="to-loc smalairport">${flights.FlightDetails.Details[0][0].Destination.AirportName} (${flights.FlightDetails.Details[0][0].Destination.AirportCode})</div>
+  <div class="smalairport_code">${flights.FlightDetails.Details[0][0].Destination.AirportCode}</div>
+  <span class="arr_dt hide" data-category="1" data-datetime="1593551700000"></span>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="col-xs-4 nopad wayfour full_same">
+  <span class="hide stp" data-stp="1" data-category="2"></span>
+  <div class="priceanbook">
+  <div class="col-xs-6 nopad wayprice">
+  <div class="insidesame">
+  <div class="priceflights"><strong> Rs </strong><span class="f-p">${flights.Price.TotalDisplayFare}</span></div>
+  <span class="hide price" data-price="5514" data-currency="Rs"></span>
+  <div data-val="1" class="n-r n-r-t">${refund}</div>
+  </div>
+  </div>
+  <div class="col-xs-6 nopad waybook">
+  <div class="form-wrapper bookbtlfrt"> <button class="bookallbtn mfb-btn clonetwo-btn" type="button">Select</button></div>
+  </div>
+  </div>
+  </div>
+  <div class="clearfix"></div>
+
+  <div class="mrinfrmtn"><a class="detailsflt iti-btn" data-toggle="modal"  data-id="${flights.FlightDetails.Details[0][0].Attr.AvailableSeats}" data-target="#FMmodal${id}"><span class="fal fa-info-circle fldetail" data-toggle="tooltip" title="" data-original-title="Flight Itinerary"></span>Flight Details | </a><i>This is a Economy Promo fare.</i></div>
+  </div> 
+
+  <div class="modal fade" id="FMmodal${id}" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+  <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <h4 class="modal-title">Modal Header</h4>
+  </div>
+  <div class="modal-body">
+  <div role="tabpanel">
+  <!-- Nav tabs -->
+  <ul class="nav nav-pills" role="tablist">
+  <li role="presentation" class="active"><a href="#uploadTableft${id}" aria-controls="uploadTab" role="tab" data-toggle="tab">Itinerary</a>
+  </li>
+  <li role="presentation"><a href="#browseTableft${id}" onload="myFunction(browseTableft${id})" aria-controls="browseTab" role="tab" data-toggle="tab">Fare Details</a>
+  </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tabmarg">
+  <div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="uploadTableft${id}">
+  <div class="alltwobnd">
+  <div class="col-xs-8 nopad full_wher">
+  <div class="inboundiv seg-0">
+  <div class="hedtowr">${flights.FlightDetails.Details[0][0].Origin.AirportName} to ${flights.FlightDetails.Details[0][0].Destination.AirportName} <strong>(${showtume})</strong></div>
+  <div class="flitone">
+  <div class="col-xs-4 nopad5">
+  <div class="imagesmflt"><img alt="G8 icon" src="${airpath}${flights.FlightDetails.Details[0][0].OperatorCode}.gif"></div>
+  <div class="flitsmdets">Goair<strong>G8 423 </strong> 
+  </div>
+  </div>
+  <div class="col-xs-6 nopad5">
+  <div class="col-xs-5 nopad5">
+  <div class="dateone">${oTime}</div>
+  <div class="dateone">${oDate}</div>
+  <div class="termnl">${flights.FlightDetails.Details[0][0].Origin.AirportName} (${flights.FlightDetails.Details[0][0].Origin.AirportCode})</div>
+  </div>
+  <div class="col-xs-2 nopad">
+  <div class="arocl fa fa-long-arrow-right"></div>
+  </div>
+  <div class="col-xs-5 nopad5">
+  <div class="dateone">${dTime}</div>
+  <div class="dateone">${dDate}</div>
+  <div class="termnl">${flights.FlightDetails.Details[0][0].Destination.AirportName} (${flights.FlightDetails.Details[0][0].Destination.AirportCode})</div>
+  </div>
+  </div>
+  <div class="col-xs-2 nopad5">
+  <div class="ritstop">
+  <div class="termnl">${showtume}</div>
+  <div class="termnl1">Stop : 0</div>
+  </div>
+  </div>
+  <span style="float:left"><b></b></span>
+  <div class="Baggage_block">
+  <div class="termnl1 flo_w"><em><i class="fa fa-suitcase bag_icon"></i>${flights.FlightDetails.Details[0][0].Attr.Baggage}</em></div>
+  <div class="termnl1 flo_w"><em><i class="air_seat timings icseats"></i>${flights.FlightDetails.Details[0][0].Attr.AvailableSeats}</em></div>
+  </div>
+  </div>    
+  </div>
+  </div>
+  <div class="col-xs-4 nopad full_wher">
+  <div class="inboundiv sidefare">
+  <h4 class="farehdng">Total Fare Breakup</h4>
+  <div class="inboundivinr">
+  <div class="rowfare">
+  <div class="col-xs-8 nopad"><span class="infolbl">Total Base Fare</span></div>
+  <div class="col-xs-4 nopad"><span class="pricelbl">${flights.Price.PriceBreakup.BasicFare}</span></div>
+  </div>
+  <div class="rowfare">
+
+  <div class="col-xs-8 nopad"><span class="infolbl">Taxes &amp; Fees</span></div>
+  <div class="col-xs-4 nopad"><span class="pricelbl">${flights.Price.PriceBreakup.Tax}</span></div>
+  </div>
+  <div class="rowfare grandtl">
+  <div class="col-xs-8 nopad"><span class="infolbl">Grand Total</span></div>
+  <div class="col-xs-4 nopad"><span class="pricelbl">${flights.Price.TotalDisplayFare}</span></div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="browseTableft${id}">
+  <div class="text-center" id="dynResponseleft${id}">Please Wait</div>
+  <input type="hidden" value="${flights.ResultToken}" id="dyninpleft${id}">
+  <div class="i-s-s-c tabmarg">
+  <div class="col-xs-12 nopad">
+  <div class="inboundiv splfares">
+  <h4 class="farehdng">Fare Rules</h4>
+  <div class="flight-fare-rules rowfare">
+  <div class="lablfare">${flights.FlightDetails.Details[0][0].Origin.AirportName} <span class="fa fa-long-arrow-right"></span> ${flights.FlightDetails.Details[0][0].Destination.AirportName}</div>
+  <div class="feenotes" id="feenoteleft${id}">
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  `
+  return leftcardtemplate;
+}
+let leftflighCardsList = '';
+let rightflighCardsList = '';
+// console.log(flightdetails[0]);
+flightdetails[0].forEach((element, id) => {
+  leftflighCardsList += createflightsCards(element, id)
+});
+
+function clonefirst(id){  
+  console.log(id);
+  var comeairlinelogo= document.getElementById("comeairlinelogo"+id).src;
+  document.getElementById("RetImg").src=comeairlinelogo; 
+  var comeairlinename=document.getElementById("comeairlinename"+id).textContent;
+  console.log(comeairlinename);
+  document.getElementById("Retfname").innerHTML=comeairlinename;
+  // document.getElementById("Retfname").innerHTML=comeairlinename; 
+  var comeairlinesmalltime=document.getElementById("comeairlinesmalltime"+id).textContent;
+  console.log(comeairlinesmalltime);  
+  var airlinebigtime=document.getElementById("airlinebigtime"+id);
+  document.getElementById("retdeptime").innerHTML=comeairlinesmalltime; 
+  console.log(airlinebigtime);
+  var comeairlinedurtime=document.getElementById("comeairlinedurtime"+id).textContent;
+  document.getElementById("comeduration").innerHTML=comeairlinedurtime;
+  console.log(comeairlinedurtime);
+  var comeairportorgcode=document.getElementById("comeairportorgcode"+id).textContent;
+  console.log(comeairportorgcode);
+  document.getElementById("Retdepname").innerHTML=comeairportorgcode;
+  var comeairportarrtime=document.getElementById("comeairportarrtime"+id);
+  console.log(comeairportarrtime);
+  var comeairportdescode=document.getElementById("comeairportdescode"+id);
+  console.log(comeairportdescode);
+  var comeairportprice=document.getElementById("comeairportprice"+id);
+  console.log(comeairportprice);
+
+     // $('#ReceiveRight').remove();
+     // console.log($("#cloneone"+id).clone().appendTo("#ReceiveRight")[0].innerHTML);
+     // $("#cloneone"+id).clone().appendTo("#ReceiveRight"); 
+   }
+
+   function addToPortFolio(cl) {
+    if ($(".portfolioWrapper").find($('.' + cl.className.replace(' ','.'))).length >  0){ 
+      console.log('exists');    
+    } else {
+      cl.clone().appendTo('.portfolioWrapper');
+      console.log('just added it');
+    }
+  }
+  flightdetails[1].forEach((element, id) => {
+    rightflighCardsList += rightcreateflightsCards(element, id)
+  });
+
+  $("#btn_clone").click(function(){  
+    $("#a_clone").clone().appendTo("#b_clone");  
+  });  
+
+// var totalcardlist= leftflighCardsList+" "+rightflighCardsList;
+var leftcardlist= leftflighCardsList;
+var rightcardlist= rightflighCardsList;
+ // var totalcardlist=rightflighCardsList;
+ // document.getElementById('flight_search_result').innerHTML = totalcardlist;
+ document.getElementById('left-div').innerHTML = leftcardlist;
+ document.getElementById('right-div').innerHTML = rightcardlist;
+
+</script>
+
+
+</html>

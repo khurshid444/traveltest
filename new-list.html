@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
+<head>
+    <!-- Page Title -->
+    <title>Travelo - Travel, Tour Booking HTML5 Template</title>
+    
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Travelo - Travel, Tour Booking HTML5 Template">
+    <meta name="author" content="SoapTheme">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Theme Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/animate.min.css">  
+
+    <!-- Main Style -->
+    <link id="main-style" rel="stylesheet" href="css/style.css">   
+    
+    <!-- Responsive Styles -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro" rel="stylesheet"> 
+    <link  href="https://demo.travelomatix.com/extras/system/library/bootstrap/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" hreflang="en">
+    <link  href="https://demo.travelomatix.com/extras/system/library/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" hreflang="en">
+    <link  href="https://demo.travelomatix.com/extras/system/template_list/template_v3/css/theme_style.css" media="screen" rel="stylesheet" type="text/css" hreflang="en">
+   
+   <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/async/3.2.0/async.min.js"></script>
+
+    <style type="text/css">
+        li.active::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 25px;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: #337ab7 transparent;
+            display: block;
+            width: 0;
+        }
+        .tabmarg {
+            display: block;
+            margin: 25px 0 0;
+            overflow: hidden;
+        }
+        .pop-over-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            opacity: 1;
+            z-index: 9999;
+        }
+        .loader-size {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+        }
+
+        .globleLoader {
+            position: fixed;
+            opacity: 0.8;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url(https://studentportal.welingkaronline.org/students/img/ajax-loaders/gears.gif) center no-repeat #000;
+        }
+    </style>
+
+</head>
+
+<body> 
+   <section id="content">
+        <div class="container">
+            <div id="main">
+                <div class="row">
+                    <div class="col-sm-4 col-md-3">
+                        <h4 class="search-results-title"><i class="soap-icon-search"></i><b id="fl-lid"></b> results found.</h4>
+                        <div class="toggle-container filters-container">
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#price-filter" class="collapsed">Price</a>
+                                </h4>
+                                <div id="price-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <div id="price-range"></div>
+                                        <br />
+                                        <span class="min-price-label pull-left"></span>
+                                        <span class="max-price-label pull-right"></span>
+                                        <div class="clearer"></div>
+                                    </div><!-- end content -->
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#flight-times-filter" class="collapsed">Flight Times</a>
+                                </h4>
+                                <div id="flight-times-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <div id="flight-times" class="slider-color-yellow"></div>
+                                        <br />
+                                        <span class="start-time-label pull-left"></span>
+                                        <span class="end-time-label pull-right"></span>
+                                        <div class="clearer"></div>
+                                    </div><!-- end content -->
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#flight-stops-filter" class="collapsed">Flight Stops</a>
+                                </h4>
+                                <div id="flight-stops-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <ul class="check-square filters-option">
+                                            <li><a href="#">1 Stop</a></li>
+                                            <li><a href="#">2 Stops</a></li>
+                                            <li class="active"><a href="#">3 Stops</a></li>
+                                            <li><a href="#">MultiStops</a></li>
+                                        </ul>
+                                        <a class="button btn-mini">MORE</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#airlines-filter" class="collapsed">Airlines</a>
+                                </h4>
+                                <div id="airlines-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <ul class="check-square filters-option">
+                                            <li><a href="#">Major Airline<small>($620)</small></a></li>
+                                            <li><a href="#">United Airlines<small>($982)</small></a></li>
+                                            <li class="active"><a href="#">delta airlines<small>($1,127)</small></a></li>
+                                            <li><a href="#">Alitalia<small>($2,322)</small></a></li>
+                                            <li><a href="#">US airways<small>($3,158)</small></a></li>
+                                            <li><a href="#">Air France<small>($4,239)</small></a></li>
+                                            <li><a href="#">Air tahiti nui<small>($5,872)</small></a></li>
+                                        </ul>
+                                        <a class="button btn-mini">MORE</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#flight-type-filter" class="collapsed">Flight Type</a>
+                                </h4>
+                                <div id="flight-type-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <ul class="check-square filters-option">
+                                            <li><a href="#">Business</a></li>
+                                            <li><a href="#">First class</a></li>
+                                            <li class="active"><a href="#">Economy</a></li>
+                                            <li><a href="#">Premium Economy</a></li>
+                                        </ul>
+                                        <a class="button btn-mini">MORE</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#inflight-experience-filter" class="collapsed">Inflight Experience</a>
+                                </h4>
+                                <div id="inflight-experience-filter" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <ul class="check-square filters-option">
+                                            <li><a href="#">Inflight Dining</a></li>
+                                            <li><a href="#">Music</a></li>
+                                            <li class="active"><a href="#">Sky Shopping</a></li>
+                                            <li><a href="#">Wi-fi</a></li>
+                                            <li><a href="#">Seats &amp; Cabin</a></li>
+                                        </ul>
+                                        <a class="button btn-mini">MORE</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel style1 arrow-right">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#modify-search-panel" class="collapsed">Modify Search</a>
+                                </h4>
+                                <div id="modify-search-panel" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        <form method="post">
+                                            <div class="form-group">
+                                                <label>Leaving from</label>
+                                                <input type="text" class="input-text full-width" placeholder="" value="city, district, or specific airpot" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Departure on</label>
+                                                <div class="datepicker-wrap">
+                                                    <input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Arriving On</label>
+                                                <div class="datepicker-wrap">
+                                                    <input type="text" name="date_to" class="input-text full-width" placeholder="mm/dd/yy" />
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <button class="btn-medium icon-check uppercase full-width">search again</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-md-9" id="onWayJourny" style="display: none;">                   
+                        <div class="allresult" id="flight_search_result"></div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-9" id="twoWayJourny" style="display: none;">
+                        <div clas="row">
+                            <div class="col-sm-6 nopad">
+                                <div id="left-div"></div>
+                            </div>
+                            <div class="col-sm-6 nopad">
+                                <div id="right-div"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- International Two way journy -->
+                    <div class="col-sm-8 col-md-9" id="internation_two_wrapper" style="display: none;">                   
+                        <div class="allresult" id="internationTwoWay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="fixincrmnt" id="multi-flight-summary-container" style="display:none">
+       <div class="insidecurent">
+          <div class="col-xs-10 nopad">
+             <div class="col-xs-6 nopad">
+                <div class="selctarln colorretn">
+                   <div class="col-xs-3 nopad flightimage">
+                      <div class="fligthsmll"><img id="flight_logo" class="departure-flight-icon" src="/extras/system/library/images/airline_logo/G8.gif" alt=""></div>
+                      <div class="airlinename departure-flight-name" id="flight_operator_name">Goair</div>
+                   </div>
+                   <div class="col-xs-9 nopad listfull">
+                      <div class="sidenamedesc">
+                         <div class="celhtl width80">
+                            <div class="waymensn">
+                               <div class="flitruo">
+                                  <div class="outbound-details">
+                                     <div class="topnavi">
+                                        <div class="col-xs-4 padflt widftysing">
+                                            <span class="flitrlbl elipsetool" id="journyStartAirportName">DEL</span>
+                                        </div>
+                                        <div class="col-xs-4 padflt nonefitysing">
+                                            <img src="/extras/system/template_list/template_v3/images/stop_0.png" alt="stop_image">
+                                        </div>
+                                        <div class="col-xs-4 padflt widftysing">
+                                            <span class="flitrlbl elipsetool text_algn_rit" id="journyEndAirportName">Mumbai (BOM)</span>
+                                        </div>
+                                     </div>
+                                  </div>
+                                  <div class="detlnavi outbound-timing-details">
+                                     <div class="col-xs-4 padflt widfty"><span class="timlbl departure" id="originDepartureTime">02:40</span></div>
+                                     <div class="col-xs-4 padflt nonefity">
+                                        <div class="lyovrtime">
+                                           <span  class="flect duration">2h 15m </span>
+                                           <div  class="flect stop-image"></div>
+                                           <span class="flect stop-count">Stop:0</span>
+                                        </div>
+                                     </div>
+                                     <div class="col-xs-4 padflt widfty"><span class="timlbl arrival text_algn_rit" id="destinationArivalTime">04:55</span></div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-xs-6 nopad">
+                <div class="selctarln cloroutbnd" id="ReceiveRight">
+                   <div class="col-xs-3 nopad flightimage">
+                      <div class="fligthsmll"><img class="arrival-flight-icon" id="RetImg" src="/extras/system/library/images/airline_logo/I5.gif" alt=""></div>
+                      <div id="Retfname" class="airlinename arrival-flight-name">Air Asia</div>
+                   </div>
+                   <div class="col-xs-9 nopad listfull">
+                      <div class="sidenamedesc">
+                         <div class="celhtl width80">
+                            <div class="waymensn">
+                               <div class="flitruo">
+                                  <div class="inbound-details">
+                                     <div class="topnavi">
+                                        <div class="col-xs-4 padflt widftysing"><span id="Retarrname" class="flitrlbl elipsetool">BOM</span></div>
+                                        <div class="col-xs-4 padflt nonefitysing"><img src="/extras/system/template_list/template_v3/images/stop_1.png" alt="stop_image"></div>
+                                        <div class="col-xs-4 padflt widftysing"><span id="Retdepname" class="flitrlbl elipsetool text_algn_rit">Delhi (DEL)</span></div>
+                                     </div>
+                                  </div>
+                                  <div class="detlnavi inbound-timing-details">
+                                     <div class="col-xs-4 padflt widfty"><span id="retdeptime" class="timlbl departure">18:30</span></div>
+                                     <div class="col-xs-4 padflt nonefity">
+                                        <div class="lyovrtime">
+                                           <span id="comeduration" class="flect duration">8h 15m </span>
+                                           <div class="flect stop-image1"></div>
+                                           <span class="flect stop-count">Stop:1</span>
+                                        </div>
+                                     </div>
+                                     <div class="col-xs-4 padflt widfty"><span id="retarrtime" class="timlbl arrival text_algn_rit">02:45</span></div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="col-xs-2 nopad">
+             <div class="sidepricewrp">
+                <div class="col-xs-12 nopad">
+                   <div class="sidepricebig"><strong class="currency">Rs</strong> <span class="f-p">11423.00</span></div>
+                </div>
+                <div class="col-xs-12 nopad">
+                   <div class="bookbtn">
+                      <input type="hidden" id="flight-from-price" value="5909"><input type="hidden" id="flight-to-price" value="5514">
+                      <form id="multi-flight-form" action="" method="POST">
+                         <div class="hide" id="trip-way-wrapper"></div>
+                         <button class="btn-flat booknow" type="button" id="multi-flight-booking-btn" onclick="bookJourny()">Book</button>
+                      </form>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="pop-over-loader" id="showLoader" style="display: block; opacity: 0.5;" >
+        <img src="https://thumbs.gfycat.com/ImaginativeShockedAmphiuma-size_restricted.gif" alt="loader" class="loader-size">
+    </div>
+</body>
+
+<script src="controller/twoWayTripJSON.js"></script>
+<script src="controller/flight-list.js"></script>
+<!-- <script src="controller/flight-list_v2.js"></script> -->
+
+</html>
